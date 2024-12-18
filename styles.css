@@ -1,0 +1,111 @@
+
+/* Basic Styling for Body and Content */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f1f1f1;
+    margin: 0;
+    padding: 0;
+  }
+
+.content {
+    padding: 20px;
+}
+
+.header {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: white;
+}
+
+
+
+  
+  
+  
+/*Navbar*//*#region*/ 	
+/* wide navbar. I love https://developer.mozilla.org/en-US/docs/Web/CSS */ 
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 60px;
+    background-color: #091c38;
+    box-shadow: 0 4px 2px -2px rgb(16, 191, 214);
+    display: flex;
+    justify-content: start;
+    z-index: 1000; /*display order*/
+}
+
+/*  wide Menu Styling */
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+/* wide menu list items */
+.menu li {
+    padding: 10px 20px;
+}
+
+/* wide menu links/text */
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* wide menu links/text hover*/
+.menu a:hover {
+    color: #30fcfc;
+    outline: rgb(16, 191, 214) solid 5px;
+    outline-offset: 5px;
+    border-radius: 2%;
+}
+
+/* Hamburger dropdown Icon */
+.hamburger {
+    display: none; /* Hide the hamburger icon by default */
+    cursor: pointer;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    top: 0;
+    left: 12px;
+    position: fixed;
+    z-index: 1001; /* Make sure the hamburger stays on top of other content */
+}
+
+/* Mobile-specific changes */
+@media (max-width: 600px) {
+
+    /* Hide the menu by default on mobile and switch direction for dropdown*/
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Show the hamburger icon on small screens */
+    .hamburger {
+        display:block;
+    }
+
+    /* Show menu dropdown when the "show" class is added by script*/
+    .menu.show {
+        display: flex;
+    }
+
+    /* mobile list items settings*/
+    .menu li {
+        padding-left: 0px;
+        width: 100%; /* Make menu items take full width */
+        text-align: center; /* Center the text */
+    }
+
+}
+/*#endregion*/
