@@ -1,66 +1,66 @@
-
-/* Basic Styling for Body and Content */
+/* default css */
 body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    background: #f1f1f1;
-    margin: 0;
+    font-family: Arial, sans-serif; 
+    font-size: 20px;
+    background-color: #b90000;
+    display:grid;
+    min-height: 100vh; /* always fill fiewport */
+    grid-template-rows: auto 1fr auto;
     padding: 0;
-  }
-
-.content {
-    padding: 20px;
+    margin: 0;
+    box-sizing: border-box; /* this probably makes it harder but will be a pain to change */
 }
 
 .header {
-    padding: 30px;
-    font-size: 40px;
+    background-color: #f1f1f1;
+    margin-top: 65px; /* to accomodate navbar */
+    padding: 3px; /* to visually balance navbar shadow */
     text-align: center;
-    background: white;
 }
 
+.footer {
+    background-color: #f1f1f1;
+    position: relative;
+    bottom: 0;
+    text-align: center;
+}
 
-
-  
-  
-  
 /*Navbar*//*#region*/ 	
-/* wide navbar. I love https://developer.mozilla.org/en-US/docs/Web/CSS */ 
-  .navbar {
-    position: fixed;
+.navbar {
+    position: fixed; /* to viewport, need to add margin-top to header to accomodate */
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 60px;
+    min-height:65px; /* needs to accomodate mobile dropdown */
     background-color: #091c38;
-    box-shadow: 0 4px 2px -2px rgb(16, 191, 214);
+    box-shadow: 0px 2px 2px 1px rgb(16, 191, 214); /* x y blur spread */
     display: flex;
     justify-content: start;
     z-index: 1000; /*display order*/
 }
 
-/*  wide Menu Styling */
+/* Menu that will be put in navbar */
 .menu {
-    list-style-type: none;
+    list-style-type: none; /* no list bullet points */
     margin: 0;
     padding: 10px;
     display: flex;
     justify-content: center;
 }
 
-/* wide menu list items */
+/*menu list items*/
 .menu li {
     padding: 10px 20px;
 }
 
-/* wide menu links/text */
+/*menu links/text*/
 .menu a {
-    color: white;
-    text-decoration: none;
     font-size: 20px;
+    color: white;
+    text-decoration: none; /* no link underlines */
 }
 
-/* wide menu links/text hover*/
+/*menu links/text hover*/
 .menu a:hover {
     color: #30fcfc;
     outline: rgb(16, 191, 214) solid 5px;
@@ -71,16 +71,40 @@ body {
 /* Hamburger dropdown Icon */
 .hamburger {
     display: none; /* Hide the hamburger icon by default */
-    cursor: pointer;
-    font-size: 40px;
+    cursor: pointer; /* change pointer when hovering */
+    font-size: 43px;
     color: rgb(255, 255, 255);
     top: 0;
     left: 12px;
-    position: fixed;
+    position: fixed; /* DO NOT MESS WITH THE BORGER IT WILL BORK THE ENTIRE NAV BAR */
     z-index: 1001; /* Make sure the hamburger stays on top of other content */
 }
+/*#endregion*/
 
-/* Mobile-specific changes */
+/*content columns*//*#region*/
+
+.column {
+    float: right; 
+}
+  
+/* Left and right column */
+.column.side {
+    width: 25%;
+}
+  
+.column.middle {
+    width: 75%;
+}
+  
+/* Clear floats after the columns dunno if this does anything
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}*/
+/*#endregion*/
+
+/* Mobile-specific changes *//*#region*/ 
 @media (max-width: 600px) {
 
     /* Hide the menu by default on mobile and switch direction for dropdown*/
@@ -100,12 +124,18 @@ body {
         display: flex;
     }
 
-    /* mobile list items settings*/
+    /* mobile menu list items settings*/
     .menu li {
         padding-left: 0px;
         width: 100%; /* Make menu items take full width */
         text-align: center; /* Center the text */
     }
-
+    
+    /* make content colums full width so they stack instead */
+    .column.side, .column.middle {
+        width: 100%;
+    }
 }
-/*#endregion*/
+
+/*#endregion*/ 
+
