@@ -3,35 +3,97 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <base href="./">
-    <link rel="stylesheet" type="text/css" href="CSS/styles.CSS" media="all">
     <link type="image/x-icon" rel="icon" href="Assets/favicon.ico"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script><!-- jquery library -->
     <title>Soup's website</title> 
+    <style>
+      body {
+    /* default css */
+    font-family: Arial, sans-serif; 
+    font-size: 20px;
+    background-color: #616161;
+    min-height: 100vh; /* always fill fiewport */
+
+    /* position navbar, header, content, footer. */
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    display:grid; 
+    grid-template-rows: 
+        [nav-placeholder] 65px 
+        [header-placeholder] min-content 
+        [content-placeholder] 1fr /* flex will always let this fill the viewport */
+        [footer] 150px; /* track list */
+}
+
+.header {
+    background-color: #f1f1f1;
+    text-align: center;
+    padding:10px;
+}
+
+.navbar {
+    position: fixed; /* to viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height:65px; /* needs to accomodate mobile dropdown beacause borger*/
+    background-color: #091c38;
+    display: flex;
+    justify-content: start;
+    z-index: 1000; /*display order: always on top*/
+}
+
+/* Menu that will be put in navbar */
+.menu {
+    list-style-type: none; /* no list bullet points */
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+/*navbar list items*/
+.menu li {
+    padding: 10px 20px;
+}
+
+/*navbar links/text*/
+.menu a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none; /* no link underlines */
+}
+
+/*menu links/text hover*/
+.menu a:hover {
+    color: #30fcfc;
+    outline: rgb(16, 191, 214) solid 5px;
+    outline-offset: 5px;
+    border-radius: 2%;
+}
+
+    </style>
   </head>
   
   <body>
-    <div class="nav-placeholder" id="nav-placeholder"></div>
+    <div>
+      <nav class="navbar">
+        <ul class="menu">
+            <li><a href="https://sean-no-soup.github.io/Soups-website/">Home page</a></li>
+        </ul>
+      </nav>
+    </div>
 
     <div class="header">
         <t>github will send 404 errors here</t>
     </div>
 
     <div class="row">
-        <div class="column side">
-          Column right
-        </div>
-
-        <div class="column middle">
-          Column mid
-        </div>
     </div>
 
     <div class="footer">
-        <t>footer</t>
     </div>
 
-    <!-- js at the end to insert nav bar and so the rest of the site is done loading first-->
-    <script src="Javascript/customscript.js"></script> 
   </body>
 </html>
