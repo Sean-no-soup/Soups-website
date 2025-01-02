@@ -1,42 +1,54 @@
-/* default css */
 body {
+    /* default css */
     font-family: Arial, sans-serif; 
     font-size: 20px;
     background-color: #b90000;
-    display:grid;
     min-height: 100vh; /* always fill fiewport */
-    grid-template-rows: auto 1fr auto;
+
+    /* position navbar, header, content, footer. */
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
-    box-sizing: border-box; /* this probably makes it harder but will be a pain to change */
+    display:grid; 
+    grid-template-rows: 
+        [nav-placeholder] 65px 
+        [header-placeholder] min-content 
+        [content-placeholder] 1fr /* flex will always let this fill the viewport */
+        [footer] 150px; /* track list */
 }
 
 .header {
     background-color: #f1f1f1;
-    margin-top: 65px; /* to accomodate navbar */
-    padding: 3px; /* to visually balance navbar shadow */
     text-align: center;
+    padding:10px;
 }
 
 .footer {
     background-color: #f1f1f1;
-    position: relative;
-    bottom: 0;
     text-align: center;
+    padding: 10px;
 }
 
 /*Navbar*//*#region*/ 	
+
+/* fix flickering */
+.nav-placeholder {
+    min-height:65px;
+    background-color: #091c38;
+    box-shadow: 0px 3px 2px 1px rgb(16, 201, 214); 
+    z-index: 999; /*display order: always on top*/
+}
+
 .navbar {
-    position: fixed; /* to viewport, need to add margin-top to header to accomodate */
+    position: fixed; /* to viewport */
     top: 0;
     left: 0;
     width: 100%;
-    min-height:65px; /* needs to accomodate mobile dropdown */
+    min-height:65px; /* needs to accomodate mobile dropdown beacause borger*/
     background-color: #091c38;
-    box-shadow: 0px 2px 2px 1px rgb(16, 191, 214); /* x y blur spread */
     display: flex;
     justify-content: start;
-    z-index: 1000; /*display order*/
+    z-index: 1000; /*display order: always on top*/
 }
 
 /* Menu that will be put in navbar */
@@ -48,12 +60,12 @@ body {
     justify-content: center;
 }
 
-/*menu list items*/
+/*navbar list items*/
 .menu li {
     padding: 10px 20px;
 }
 
-/*menu links/text*/
+/*navbar links/text*/
 .menu a {
     font-size: 20px;
     color: white;
@@ -68,7 +80,7 @@ body {
     border-radius: 2%;
 }
 
-/* Hamburger dropdown Icon */
+/* Hamburger Icon for mobile*/
 .hamburger {
     display: none; /* Hide the hamburger icon by default */
     cursor: pointer; /* change pointer when hovering */
@@ -79,32 +91,7 @@ body {
     position: fixed; /* DO NOT MESS WITH THE BORGER IT WILL BORK THE ENTIRE NAV BAR */
     z-index: 1001; /* Make sure the hamburger stays on top of other content */
 }
-/*#endregion*/
 
-/*content columns*//*#region*/
-
-.column {
-    float: right; 
-}
-  
-/* Left and right column */
-.column.side {
-    width: 25%;
-}
-  
-.column.middle {
-    width: 75%;
-}
-  
-/* Clear floats after the columns dunno if this does anything
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}*/
-/*#endregion*/
-
-/* Mobile-specific changes *//*#region*/ 
 @media (max-width: 600px) {
 
     /* Hide the menu by default on mobile and switch direction for dropdown*/
@@ -130,12 +117,28 @@ body {
         width: 100%; /* Make menu items take full width */
         text-align: center; /* Center the text */
     }
-    
+}
+/*#endregion*/
+
+/*content columns*//*#region*/
+.column {
+    float: right; 
+    position: relative;
+}
+
+.column.side {
+    width: 25%;
+    background-color:#c0c0c0;
+}
+.column.middle {
+    width: 75%;
+    background-color:#cccccc
+}
+
+@media (max-width: 600px) {
     /* make content colums full width so they stack instead */
     .column.side, .column.middle {
         width: 100%;
     }
 }
-
-/*#endregion*/ 
-
+/*#endregion*/
