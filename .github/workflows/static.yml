@@ -34,7 +34,7 @@ jobs:
       # Update base href in HTML files
       - name: Update base href in HTML files
         run: |
-          find . -name "*.html" -exec sed -i 's|<base href="/">|<base href="/${GITHUB_REPOSITORY}/">|' {} \;
+          find . -name "*.html" -exec sed -i 's|<base href="/">|<base href="/${env.GITHUB_REPOSITORY}/">|' {} \;
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
