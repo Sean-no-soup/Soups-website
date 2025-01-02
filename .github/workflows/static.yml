@@ -31,7 +31,7 @@ jobs:
       # Update base href in the built HTML (Make sure 'build' is the correct folder)
       - name: Update base href in HTML
         run: |
-          sed -i 's|<base href="/">|<base href="/${GITHUB_REPOSITORY}/">|' build/index.html
+          find . -name "*.html" -exec sed -i 's|<base href="/">|<base href="/${GITHUB_REPOSITORY}/">|' {} \;
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
