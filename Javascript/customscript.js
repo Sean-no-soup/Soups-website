@@ -32,7 +32,7 @@ menu.classList.toggle('show');
 
 // Function inserts nav.html so navbar only has to be changed in one place
 function insertNavBar() {
-  $("#nav-placeholder").load("./nav.html"); /* make sure this is not a relative directory */
+  $("#nav-placeholder").load("nav.html"); /* make sure this is not a relative directory */
 }
 
 //when any window is loaded run this
