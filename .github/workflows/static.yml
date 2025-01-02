@@ -28,11 +28,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
-      # Update base href in the built HTML (Make sure 'build' is the correct folder)
-      - name: Update base href in HTML
-        run: |
-          find . -name "*.html" -exec sed -i 's|<base href="/">|<base href="/${GITHUB_REPOSITORY}/">|' {} \;
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -41,6 +36,12 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './build'  # Ensure this is the folder with your build output
+
+        # Update base href in the built HTML (Make sure 'build' is the correct folder)
+      - name: Update base href in HTML
+        run: |
+          find . -name "*.html" -exec sed -i 's|<base href="/">|<base href="/${GITHUB_REPOSITORY}/">|' {} \;
+
 
       - name: Deploy to GitHub Pages
         id: deployment
