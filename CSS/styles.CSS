@@ -139,6 +139,8 @@ body {
 .column.middle {
     width: 75%;
     background-color:#cccccc
+
+
 }
 
 @media (max-width: 600px) {
