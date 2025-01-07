@@ -123,12 +123,17 @@ body {
 
 /*content columns*//*#region*/
 .column {
-    float: right; 
+    box-sizing: border-box;
+    float:left; 
     position: relative;
+    border-style:unset;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 1%; /* right edge currently in html, yes this is messy af but i dont want to bother with another grid container today */
 }
 
 .column.side {
-    width: 25%;
+    width: 23%;
     background-color:#c0c0c0;
 }
 .column.middle {
@@ -139,7 +144,7 @@ body {
 @media (max-width: 600px) {
     /* make content colums full width so they stack instead */
     .column.side, .column.middle {
-        width: 100%;
+        width: 99%;
     }
 }
 /*#endregion*/

@@ -8,27 +8,51 @@
     <link type="image/x-icon" rel="icon" href="Assets/favicon.ico"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script><!-- jquery library -->
     <title>Soup's website</title> 
+    <style>
+      body {
+        background-image: url(Assets/kiuyh_web.jpg); 
+        background-position-y: 105px;
+        background-size:cover;
+      }
+    </style>
   </head>
   
   <body>
     <div class="nav-placeholder" id="nav-placeholder"></div>
 
     <div class="header">
-        <t>home page</t>
+        <t>soup's website</t>
     </div>
 
-    <div class="row">
-        <div class="column side">
-          main content
-        </div>
+    <div class="row" style="padding:1vw; padding-left: 0;"> <!-- this is to have 1vw on the sides and BETWEEN columns -->
 
-        <div class="column middle">
-          side content
-        </div>
+      <div class="column middle" style="width: 49%;">
+        <h1 style="margin:2px;">About me</h1>
+        <p>
+        Hello there, and thanks for visiting my corner of the internet. I am a physics undergrad and camp enthusiast, very immersed in aquatics and safety at work and I always have about a dozen unfinished projects being chipped away at. including this
+      </p>
+      </div>
+
+      <div class="column side" style="width: 49%"";>
+        <h1 style="margin:2px;">Links and contact</h1>
+        personal email
+        <br>
+        <a href="mailto:sean.heffley72@outlook.com" style="padding-left: 1em"> sean.heffley72@outlook.com </a>
+        <br>
+        work email
+        <br>
+        <a href="mailto:sheffley@ymcabn.org" style="padding-left: 1em"> sheffley@ymcabn.org </a>
+        <br>
+        placeholder more info
+        <br>
+        <a href="https://en.pronouns.page/@sean_no_soup" style="padding-left: 1em"> they/them </a>
+      </div>
+
+
     </div>
 
     <div class="footer">
-        <t>footer</t>
+        <a href="https://github.com/Sean-no-soup/Soups-website/tree/main">source code</a>
     </div>
 
     <!-- js at the end to insert nav bar and so the rest of the site is done loading first-->
