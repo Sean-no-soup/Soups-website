@@ -5,43 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <base href="./">
     <link rel="stylesheet" type="text/css" href="CSS/styles.CSS" media="all">
-    
     <link type="image/x-icon" rel="icon" href="Assets/favicon.ico"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script><!-- jquery library -->
     <title>Soup's website</title> 
-    <style>
-      body {
-        background-image: url(Assets/kiuyh_web.jpg); 
-        background-position-y: 105px;
-        background-size:cover;
-      }
-    </style>
   </head>
   
-  <body style="grid-template-rows: /* no header on homepage */
-  [nav-placeholder] 65px 
-  [content-placeholder] 1fr 
-  [footer] 150px;">
+  <body>
 
-    <div class="nav-placeholder" id="nav-placeholder"></div>
+    <div class="navbar-placeholder" id="nav-placeholder">do I need something here</div>
 
-
-    <div class="row"> <!-- content padding -->
+    <div class="header"> <p>header</p> </div>
 
 
-
+    <div class="row">
+      <p>content</p>
     </div>
 
     <div class="footer">
+      <img class="footer-image" src="Assets/soup_1.jpg" alt="photo of soup at camp weona"> <!-- alt text -->
+
       <div>
-        <a href="https://github.com/Sean-no-soup/Soups-website/tree/main" style="position:relative;top:100px;">source code for this site</a>
+        contact 
       </div>
+
       <div>
-        
-        
+        pinned <a href="https://github.com/Sean-no-soup/Soups-website/tree/main">source code for this site</a>
       </div>
+      <script src="Javascript/customscript.js"></script> 
     </div>
 
-    <script src="Javascript/customscript.js"></script> 
+    
   </body>
 </html>
