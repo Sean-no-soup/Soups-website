@@ -32,11 +32,14 @@ menu.classList.toggle('show');
 
 // Function inserts nav.html so navbar only has to be changed in one place
 function insertNavBar() {
-  $("#nav-placeholder").load("nav.html");  
+  $("#nav-placeholder").load("nav.html");
+  console.log("navbar loaded");   
 }
 
 function insertFooter() {
-  $("#footer-placeholder").load("footer.html");  
+  console.log("loading footer");  
+  $("#footer-placeholder").load("footer.html");
+ 
 }
 
 //when any window is loaded run this
@@ -44,3 +47,9 @@ $(window).on('load', insertNavBar());
 
 //when any window is loaded run this
 $(window).on('load', insertFooter());
+
+console.log("Hello world :3");
+
+window.onload = (event) => {
+  console.log("any page was loaded"); /* dont think this will work */
+};
