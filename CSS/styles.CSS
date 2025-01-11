@@ -1,7 +1,6 @@
-* { border: 1px solid red !important; } 
+/* * { border: 1px solid red !important; }  */
 
 body {
-    /* default css */
     font-family: Arial, sans-serif; 
     font-size: 20px;
     background-color: #b90000;
@@ -16,12 +15,11 @@ body {
         [row-navbar-start] 65px 
         [row-header-start] min-content /* dont display if header is empty */
         [row-content-start-fill] 1fr /* flex will always let this fill the viewport */
-        [row-footer-start] 164px
-        [row-page-end];
+        [row-footer-start] 164px; /* why is whitespace being added to the bottom of page in the dev environment? */
 }
 
 
-/*Navbar*//*#region*/ 	
+/* navbar */ /* #region */ 	
 
 /* fix flickering from inserting navbar with javascript 
 after page loads*/
@@ -123,12 +121,21 @@ after page loads*/
 }
 /*#endregion*/
 
-
+/* header */ /* #region */
 .header {
     grid-row-start:row-header-start;
     grid-row-end:row-content-start-fill;
     background-color: #f1f1f1;
     text-align: center;
+}
+
+/* header */ /* #endregion */
+
+/* footer */ /* #region */
+.foot-placeholder {
+    grid-row-start:row-footer-start;
+    grid-row-end:row-page-end;
+    background-color: #f1f1f1;
 }
 
 .footer {
@@ -139,6 +146,8 @@ after page loads*/
     display: flex;
     padding: 10px;
     gap:10px;
+    align-items: start;
+    justify-content: start;
 }
 
 .footer-image{
@@ -146,17 +155,47 @@ after page loads*/
     width: 144px;
 }
 
+.footer-list{
+    list-style: none;
+    padding-right: 30px;
+}
 
-/*content columns*//*#region*/ /* dont think Im keeping this */
+.footer-list h2{
+    text-decoration: underline;
+    padding:0;
+    margin: 0;
+}
+
+.footer-list a{
+    text-decoration: none;
+}
+
+.footer-list li{
+    margin:5px;
+}
+@media (max-width: 600px) {
+    .footer-image{
+        display: none;
+    }
+}
+
+/* footer */ /* #endregion */
+
+/* content styles *//* #region */
+.content { /* box for everything else and defaults.
+     check for overflow if random whitespace show up*/
+    grid-row-start:row-content-start-fill;
+    grid-row-end:row-footer-start;
+    border-style:unset;
+    border-radius: 10px;
+    padding-left: 10px;
+    text-wrap: wrap;
+}
+
 .column {
     box-sizing: border-box;
     float:left; 
     position: relative;
-    border-style:unset;
-    border-radius: 10px;
-    padding: 10px;
-    margin-left: 1%; /* right edge currently in html, yes this is messy af but i dont want to bother with another grid container today */
-    text-wrap: wrap;
 }
 
 .column.side {
@@ -171,7 +210,7 @@ after page loads*/
 @media (max-width: 1000px) {
     /* make content colums full width so they stack instead */
     .column.side, .column.middle {
-        width: 100%;
+        width: 100%; /* TODO fix overflow */
     }
 }
 /*#endregion*/

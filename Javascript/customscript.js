@@ -35,5 +35,12 @@ function insertNavBar() {
   $("#nav-placeholder").load("nav.html");  
 }
 
+function insertFooter() {
+  $("#footer-placeholder").load("footer.html");  
+}
+
 //when any window is loaded run this
 $(window).on('load', insertNavBar());
+
+//when any window is loaded run this
+$(window).on('load', insertFooter());
