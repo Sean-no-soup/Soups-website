@@ -24,8 +24,13 @@ body {
 }
 
 .footer {
+    display: grid;
     background-color: #f1f1f1;
-    text-align: center;
+    grid-template-columns: 
+        [website] 1fr
+        [contact] 2fr;
+
+
     padding: 10px;
 }
 
@@ -130,6 +135,7 @@ body {
     border-radius: 10px;
     padding: 10px;
     margin-left: 1%; /* right edge currently in html, yes this is messy af but i dont want to bother with another grid container today */
+    text-wrap: wrap;
 }
 
 .column.side {
@@ -143,10 +149,11 @@ body {
 
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
     /* make content colums full width so they stack instead */
     .column.side, .column.middle {
-        width: 99%;
+        width: 100%;
     }
 }
 /*#endregion*/
+

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <base href="./">
     <link rel="stylesheet" type="text/css" href="CSS/styles.CSS" media="all">
+    
     <link type="image/x-icon" rel="icon" href="Assets/favicon.ico"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script><!-- jquery library -->
     <title>Soup's website</title> 
@@ -17,45 +18,30 @@
     </style>
   </head>
   
-  <body>
+  <body style="grid-template-rows: /* no header on homepage */
+  [nav-placeholder] 65px 
+  [content-placeholder] 1fr 
+  [footer] 150px;">
+
     <div class="nav-placeholder" id="nav-placeholder"></div>
 
-    <div class="header">
-        <t>soup's website</t>
-    </div>
 
-    <div class="row" style="padding:1vw; padding-left: 0;"> <!-- this is to have 1vw on the sides and BETWEEN columns -->
+    <div class="row"> <!-- content padding -->
 
-      <div class="column middle" style="width: 49%;">
-        <h1 style="margin:2px;">About me</h1>
-        <p>
-        Hello there, and thanks for visiting my corner of the internet. I am a physics undergrad and camp enthusiast, very immersed in aquatics and safety at work and I always have about a dozen unfinished projects being chipped away at. including this
-      </p>
-      </div>
-
-      <div class="column side" style="width: 49%"";>
-        <h1 style="margin:2px;">Links and contact</h1>
-        personal email
-        <br>
-        <a href="mailto:sean.heffley72@outlook.com" style="padding-left: 1em"> sean.heffley72@outlook.com </a>
-        <br>
-        work email
-        <br>
-        <a href="mailto:sheffley@ymcabn.org" style="padding-left: 1em"> sheffley@ymcabn.org </a>
-        <br>
-        placeholder more info
-        <br>
-        <a href="https://en.pronouns.page/@sean_no_soup" style="padding-left: 1em"> they/them </a>
-      </div>
 
 
     </div>
 
     <div class="footer">
-        <a href="https://github.com/Sean-no-soup/Soups-website/tree/main">source code</a>
+      <div>
+        <a href="https://github.com/Sean-no-soup/Soups-website/tree/main" style="position:relative;top:100px;">source code for this site</a>
+      </div>
+      <div>
+        
+        
+      </div>
     </div>
 
-    <!-- js at the end to insert nav bar and so the rest of the site is done loading first-->
     <script src="Javascript/customscript.js"></script> 
   </body>
 </html>
