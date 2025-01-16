@@ -3,7 +3,6 @@
 body {
     font-family: Arial, sans-serif; 
     font-size: 20px;
-    background-color: #b90000;
     min-height: 100vh; /* always fill fiewport */
 
     /* position navbar, header, content, footer. */
@@ -182,35 +181,40 @@ after page loads*/
 /* footer */ /* #endregion */
 
 /* content styles *//* #region */
-.content { /* box for everything else and defaults.
-     check for overflow if random whitespace show up*/
+.content { /* box for everything else
+     check for overflow if random whitespace shows up*/
     grid-row-start:row-content-start-fill;
     grid-row-end:row-footer-start;
-    border-style:unset;
-    border-radius: 10px;
-    padding-left: 10px;
-    text-wrap: wrap;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px;
+    gap: 10px;
+    background-image: url(../Assets/weonalake.png);
+    background-size: cover;
+
 }
 
 .column {
-    box-sizing: border-box;
-    float:left; 
-    position: relative;
+    border-radius: 10px;
+    background-color:#bebebec5;
+    backdrop-filter: blur(5px);
+    width: auto;
+    padding: 10px;
+    margin: 0;
+    flex-grow:1; /* fill space */
+    text-wrap-mode:wrap;
+    width: min-content;
+
 }
 
-.column.side {
-    width: 23%;
-    background-color:#c0c0c0;
-}
-.column.middle {
-    width: 75%;
-    background-color:#cccccc
-}
-
-@media (max-width: 1000px) {
-    /* make content colums full width so they stack instead */
-    .column.side, .column.middle {
-        width: 100%; /* TODO fix overflow */
+@media (max-width: 600px) {
+    .content {
+        flex-direction: column;
+        flex-grow:0;
+    }
+    .column {
+        width: auto;
     }
 }
+
 /*#endregion*/

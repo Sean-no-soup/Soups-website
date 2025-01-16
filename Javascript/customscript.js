@@ -39,7 +39,6 @@ function insertNavBar() {
 function insertFooter() {
   console.log("loading footer");  
   $("#footer-placeholder").load("footer.html");
- 
 }
 
 //when any window is loaded run this
