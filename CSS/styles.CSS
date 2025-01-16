@@ -1,8 +1,8 @@
+/* * { border: 1px solid red !important; }  */
+
 body {
-    /* default css */
     font-family: Arial, sans-serif; 
     font-size: 20px;
-    background-color: #b90000;
     min-height: 100vh; /* always fill fiewport */
 
     /* position navbar, header, content, footer. */
@@ -11,37 +11,36 @@ body {
     margin: 0;
     display:grid; 
     grid-template-rows: 
-        [nav-placeholder] 65px 
-        [header-placeholder] min-content 
-        [content-placeholder] 1fr /* flex will always let this fill the viewport */
-        [footer] 150px; /* track list */
+        [row-navbar-start] 65px 
+        [row-header-start] min-content /* dont display if header is empty */
+        [row-content-start-fill] 1fr /* flex will always let this fill the viewport */
+        [row-footer-start] 164px; /* why is whitespace being added to the bottom of page in the dev environment? */
 }
 
-.header {
-    background-color: #f1f1f1;
-    text-align: center;
-    padding:10px;
-}
 
-.footer {
-    background-color: #f1f1f1;
-    text-align: center;
-    padding: 10px;
-}
+/* navbar */ /* #region */ 	
 
-/*Navbar*//*#region*/ 	
+/* fix flickering from inserting navbar with javascript 
+after page loads*/
+.navbar-placeholder {
+    grid-row-start:row-navbar-start;
+    grid-row-end:row-header-start;
+    position: fixed;
+    top: 0;
+    left: 0;
 
-
-/* fix flickering */
-.nav-placeholder {
-    min-height:65px;
+    width: 100%;
+    height:65px;
     background-color: #091c38;
     box-shadow: 0px 3px 2px 1px rgb(16, 201, 214); 
-    z-index: 999; /*display order: always on top*/
+    z-index: 999;
 }
 
-.navbar {
-    position: fixed; /* to viewport */
+.navbar { /* needs to change size to fit menu dropdown, TODO: make navbar inset just menu and combine these */
+    grid-row-start:row-navbar-start;
+    grid-row-end:row-header-start;
+
+    position: fixed; /* to viewport;always visible */
     top: 0;
     left: 0;
     width: 100%;
@@ -85,7 +84,7 @@ body {
 .hamburger {
     display: none; /* Hide the hamburger icon by default */
     cursor: pointer; /* change pointer when hovering */
-    font-size: 43px;
+    font-size: 43px; /* this looks centered */
     color: rgb(255, 255, 255);
     top: 0;
     left: 12px;
@@ -121,32 +120,101 @@ body {
 }
 /*#endregion*/
 
-/*content columns*//*#region*/
-.column {
-    box-sizing: border-box;
-    float:left; 
-    position: relative;
-    border-style:unset;
-    border-radius: 10px;
+/* header */ /* #region */
+.header {
+    grid-row-start:row-header-start;
+    grid-row-end:row-content-start-fill;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+/* header */ /* #endregion */
+
+/* footer */ /* #region */
+.foot-placeholder {
+    grid-row-start:row-footer-start;
+    grid-row-end:row-page-end;
+    background-color: #f1f1f1;
+}
+
+.footer {
+    grid-row-start:row-footer-start;
+    grid-row-end:row-page-end;
+    background-color: #f1f1f1;
+
+    display: flex;
     padding: 10px;
-    margin-left: 1%; /* right edge currently in html, yes this is messy af but i dont want to bother with another grid container today */
+    gap:10px;
+    align-items: start;
+    justify-content: start;
 }
 
-.column.side {
-    width: 23%;
-    background-color:#c0c0c0;
+.footer-image{
+    height: 144px;
+    width: 144px;
 }
-.column.middle {
-    width: 75%;
-    background-color:#cccccc
 
+.footer-list{
+    list-style: none;
+    padding-right: 30px;
+}
+
+.footer-list h2{
+    text-decoration: underline;
+    padding:0;
+    margin: 0;
+}
+
+.footer-list a{
+    text-decoration: none;
+}
+
+.footer-list li{
+    margin:5px;
+}
+@media (max-width: 600px) {
+    .footer-image{
+        display: none;
+    }
+}
+
+/* footer */ /* #endregion */
+
+/* content styles *//* #region */
+.content { /* box for everything else
+     check for overflow if random whitespace shows up*/
+    grid-row-start:row-content-start-fill;
+    grid-row-end:row-footer-start;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px;
+    gap: 10px;
+    background-image: url(../Assets/weonalake.png);
+    background-size: cover;
+
+}
+
+.column {
+    border-radius: 10px;
+    background-color:#bebebec5;
+    backdrop-filter: blur(5px);
+    width: auto;
+    padding: 10px;
+    margin: 0;
+    flex-grow:1; /* fill space */
+    text-wrap-mode:wrap;
+    width: min-content;
 
 }
 
 @media (max-width: 600px) {
-    /* make content colums full width so they stack instead */
-    .column.side, .column.middle {
-        width: 99%;
+    .content {
+        flex-direction: column;
+        flex-grow:0;
+    }
+    .column {
+        width: auto;
     }
 }
+
 /*#endregion*/
