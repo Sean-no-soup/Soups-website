@@ -176,6 +176,11 @@ after page loads*/
     .footer-image{
         display: none;
     }
+    .footer{
+        flex-direction: column;
+        gap: 20px;
+
+}
 }
 
 /* footer */ /* #endregion */
