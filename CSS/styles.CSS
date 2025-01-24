@@ -204,12 +204,27 @@ after page loads*/
     background-color:#bebebec5;
     backdrop-filter: blur(5px);
     width: auto;
-    padding: 10px;
     margin: 0;
+    padding-left: 5px;
     flex-grow:1; /* fill space */
     text-wrap-mode:wrap;
     width: min-content;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+}
 
+.column[data-bg-image="homepage"] {
+    background-image: url('../Assets/hammocksoup.png');
+    padding-right: 370px;
+}
+
+.mobile-image {
+    float:right;
+    margin: 10px;
+    border-radius: 5px;
+    display: none;
+    height: 50vw;
 }
 
 @media (max-width: 600px) {
@@ -219,7 +234,22 @@ after page loads*/
     }
     .column {
         width: auto;
+        padding: auto;
+        padding-left: 5px;
     }
+
+    .column[data-bg-image="homepage"] {
+        background-image: none; 
+        width: auto;
+        padding: 0;
+    }
+
+    .mobile-image{
+        display:block;
+    }
+
+
 }
+
 
 /*#endregion*/
