@@ -24,7 +24,7 @@ function openAvenza() {
   }, 2000); // Timeout after 2 seconds
 }
 
-// Function to toggle the dropdown menu from borger
+// Function to toggle the dropdown menu from borger (mobile)
 function toggleMenu() {
 const menu = document.querySelector('.menu');
 menu.classList.toggle('show');
@@ -47,8 +47,6 @@ $(window).on('load', insertNavBar());
 //when any window is loaded run this
 $(window).on('load', insertFooter());
 
-console.log("Hello world :3");
-
 window.onload = (event) => {
-  console.log("any page was loaded"); /* dont think this will work */
+  console.log("debug; any page was loaded"); /* dont think this will work */
 };

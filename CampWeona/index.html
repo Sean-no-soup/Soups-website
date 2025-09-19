@@ -15,22 +15,50 @@
     <div class="navbar-placeholder" id="nav-placeholder"></div>
 
     <div class="header" style="font-size: 14px">       
-      <h2 style="margin: 5px;margin-top: 8px;font-size: 22px">Camp Weona Disclaimer</h2>
-      This page and assets are independent and unofficial resources
-      created by Soup for personal convenience of staff and visitors. 
-      It is not affiliated with, endorsed by, or officially supported by the YMCA or any 
-      of its programs. For official information please refer to the official website or 
-      contact the camp office. 
+      <h2 style="margin: 5px;margin-top: 8px;font-size: 25px; background-color: gold;">Camp Weona Disclaimer</h2><p style="font-size: 13pt;">
+      This page and corresponding assets are independent and unofficial resources
+      created by Soup for personal convenience. It is not affiliated with, endorsed by, or officially supported by the YMCA or any 
+      of its programs.</p>
     </div>
 
     <div class="content" > 
-
       <iframe class="column" style="flex-grow:3; min-height: 80vh;padding:10px;" src="https://www.google.com/maps/d/u/1/embed?mid=1pjEoDr9g4PU7QRsZ8R_JpAvRcz3aVvw&ehbc=2E312F"" ></iframe>
     
       <!-- <a href="javascript:void(0);" onclick="openAvenza()"> attempt to open GEO-PDF in avenza maps </a> -->
       <div class="column" style="padding: 20px;">
-        For more information <br> and the most recent updates on this project; <br><br> check the google drive  <a href="https://drive.google.com/drive/folders/1aXTGnGOfZ_R5WWoJOYuVr2GQXUAx7Hxu?usp=drive_link">here</a>
-    </div>
+        For more information <br> and the most recent updates on this project; <a href="https://drive.google.com/drive/folders/1aXTGnGOfZ_R5WWoJOYuVr2GQXUAx7Hxu?usp=drive_link">google drive</a>
+        <br> 
+        
+        <p id="demo">loading...</p>
+
+        <script>
+          //date we're counting down to
+          var countDownDate = new Date("July 5, 2026 14:00:00").getTime();
+
+          //update every second
+          var x = setInterval(()=>{
+
+            //get current date
+            var now = new Date().getTime();
+            //find difference
+            var distance = countDownDate - now;
+            //convert to days, hours, minutes, seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            //display using element id "demo"
+            document.getElementById("demo").innerHTML = "time until next summer:\n" + days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds ";
+            //if the countdown is finished add text instead
+            if (distance < 0) {
+              clearInterval(x);
+              document.getElementById("demo").innerHTML = "SUMMER HAS STARTED";
+            }
+          }, 1000);
+
+        </script>
+
+      </div>
 
 
     </div>
