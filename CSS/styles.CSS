@@ -1,4 +1,6 @@
-/* * { border: 1px solid red !important; }  */
+/*uncomment to show element borders*/
+/* * { border: 1px solid red !important; }  */ 
+
 
 body {
     font-family: Arial, sans-serif; 
@@ -14,7 +16,7 @@ body {
         [row-navbar-start] 65px 
         [row-header-start] min-content /* dont display if header is empty */
         [row-content-start-fill] 1fr /* flex will always let this fill the viewport */
-        [row-footer-start] 164px; /* why is whitespace being added to the bottom of page in the dev environment? */
+        [row-footer-start] 164px;
 }
 
 
@@ -36,7 +38,7 @@ after page loads*/
     z-index: 999;
 }
 
-.navbar { /* needs to change size to fit menu dropdown, TODO: make navbar inset just menu and combine these */
+.navbar { /* needs to change size to fit menu dropdown, TODO?: make navbar inset just menu and combine these */
     grid-row-start:row-navbar-start;
     grid-row-end:row-header-start;
 
@@ -93,6 +95,7 @@ after page loads*/
     z-index: 1001; /* Make sure the hamburger stays on top of other content */
 }
 
+/* if the window is narrow aka mobile mode */
 @media (max-width: 600px) {
 
     /* Hide the menu by default on mobile and switch direction for dropdown*/
@@ -103,7 +106,7 @@ after page loads*/
         width: 100%;
     }
 
-    /* Show the hamburger icon on small screens */
+    /* Show the hamburger icon */
     .hamburger {
         display:block;
     }
@@ -133,13 +136,14 @@ after page loads*/
 /* header */ /* #endregion */
 
 /* footer */ /* #region */
-.foot-placeholder {
+.footer-placeholder {
     grid-row-start:row-footer-start;
     grid-row-end:row-page-end;
     background-color: #f1f1f1;
 }
 
-.footer {
+/* gets inserted after page loads */
+.footer { 
     grid-row-start:row-footer-start;
     grid-row-end:row-page-end;
     background-color: #f1f1f1;
@@ -174,6 +178,7 @@ after page loads*/
 .footer-list li{
     margin:5px;
 }
+
 @media (max-width: 600px) {
     .footer-image{
         display: none;
@@ -188,8 +193,8 @@ after page loads*/
 /* footer */ /* #endregion */
 
 /* content styles *//* #region */
-.content { /* box for everything else
-     check for overflow if random whitespace shows up*/
+/* box for everything else check for overflow if random whitespace shows up*/
+.content { 
     grid-row-start:row-content-start-fill;
     grid-row-end:row-footer-start;
     display: flex;

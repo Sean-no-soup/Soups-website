@@ -1,6 +1,6 @@
 
 var mapLink = "avenzamaps://www.dropbox.com/scl/fi/nhn9fu83lgt7pxceb0hem/GPAZ_TRV2001_03_1_Havasu_36x32_2017.pdf?rlkey=s4moalwl5yzi9qy4thv8zr6gl&st=oihjg0hy&dl=1"; // URL scheme to open map
-var mapOnly = "https://www.dropbox.com/scl/fi/nhn9fu83lgt7pxceb0hem/GPAZ_TRV2001_03_1_Havasu_36x32_2017.pdf?rlkey=s4moalwl5yzi9qy4thv8zr6gl&st=oihjg0hy&dl=0"
+var mapOnly = "https://www.dropbox.com/scl/fi/nhn9fu83lgt7pxceb0hem/GPAZ_TRV2001_03_1_Havasu_36x32_2017.pdf?rlkey=s4moalwl5yzi9qy4thv8zr6gl&st=oihjg0hy&dl=0";
 var appStoreURL = "https://apps.apple.com/us/app/avenza-maps/id452870569"; // iOS App Store URL
 var playStoreURL = "https://play.google.com/store/apps/details?id=com.Avenza&hl=en_US"; // Android Play Store URL
 
@@ -47,6 +47,9 @@ $(window).on('load', insertNavBar());
 //when any window is loaded run this
 $(window).on('load', insertFooter());
 
-window.onload = (event) => {
-  console.log("debug; any page was loaded"); /* dont think this will work */
-};
+// window.onload = (event) => {
+
+//   console.log("debug; any page was loaded"); /* dont think this will work */
+// };
+
+
